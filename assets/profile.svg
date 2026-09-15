@@ -1,216 +1,750 @@
-<svg width="1280" height="640" viewBox="0 0 1280 640" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+<svg
+  width="1400"
+  height="620"
+  viewBox="0 0 1400 620"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+
   <defs>
-    <linearGradient id="bgGradient" x1="0" y1="0" x2="1280" y2="640" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0B1020"/>
-      <stop offset="50%" stop-color="#0F172A"/>
-      <stop offset="100%" stop-color="#08111F"/>
-      <animate attributeName="x2" values="1280;1000;1280" dur="8s" repeatCount="indefinite"/>
+
+    <!-- ====================== -->
+    <!-- BACKGROUND GRADIENTS -->
+    <!-- ====================== -->
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="620">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="45%" stop-color="#07111F"/>
+      <stop offset="100%" stop-color="#050816"/>
     </linearGradient>
 
-    <linearGradient id="lineGradient" x1="0" y1="0" x2="1280" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#22D3EE"/>
-      <stop offset="50%" stop-color="#8B5CF6"/>
-      <stop offset="100%" stop-color="#22D3EE"/>
+    <radialGradient id="cyanAura">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#00E5FF" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="purpleAura">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#8B5CF6" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="neonLine" x1="0" y1="0" x2="1400" y2="0">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="50%" stop-color="#6366F1"/>
+      <stop offset="100%" stop-color="#C084FC"/>
     </linearGradient>
 
-    <linearGradient id="chipGradient" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0F1B33"/>
-      <stop offset="100%" stop-color="#101C2E"/>
+    <linearGradient id="cardBorder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
     </linearGradient>
+
+    <!-- ====================== -->
+    <!-- FILTERS -->
+    <!-- ====================== -->
 
     <filter id="glow">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#22D3EE" flood-opacity="0.12"/>
+    <filter id="softGlow">
+      <feGaussianBlur stdDeviation="18"/>
     </filter>
 
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- ====================== -->
+    <!-- CSS -->
+    <!-- ====================== -->
+
     <style>
-      .title {
-        font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
-        font-weight: 700;
-        letter-spacing: 0.5px;
+
+      .sans {
+        font-family:
+          "Segoe UI Variable",
+          "Segoe UI",
+          Inter,
+          Arial,
+          sans-serif;
       }
-      .subtitle {
-        font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
-        font-weight: 500;
-      }
+
       .mono {
-        font-family: Consolas, 'Courier New', monospace;
+        font-family:
+          "Cascadia Code",
+          "JetBrains Mono",
+          Consolas,
+          monospace;
       }
-      .label {
-        font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
-        font-weight: 600;
+
+      .orbitA {
+        animation: rotateA 20s linear infinite;
+        transform-origin: 220px 255px;
       }
-      .small {
-        font-family: 'Segoe UI', 'Inter', 'Arial', sans-serif;
-        font-weight: 500;
+
+      @keyframes rotateA {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
       }
-      .float1 {
-        animation: float1 5s ease-in-out infinite;
+
+      .orbitB {
+        animation: rotateB 14s linear infinite reverse;
+        transform-origin: 220px 255px;
       }
-      .float2 {
-        animation: float2 6s ease-in-out infinite;
+
+      @keyframes rotateB {
+        from { transform: rotate(0deg); }
+        to   { transform: rotate(360deg); }
       }
-      .float3 {
-        animation: float3 7s ease-in-out infinite;
+
+      .float {
+        animation: float 5s ease-in-out infinite;
       }
-      @keyframes float1 {
+
+      @keyframes float {
         0%,100% { transform: translateY(0px); }
-        50% { transform: translateY(-8px); }
+        50%     { transform: translateY(-8px); }
       }
-      @keyframes float2 {
+
+      .floatSlow {
+        animation: floatSlow 7s ease-in-out infinite;
+      }
+
+      @keyframes floatSlow {
         0%,100% { transform: translateY(0px); }
-        50% { transform: translateY(10px); }
+        50%     { transform: translateY(6px); }
       }
-      @keyframes float3 {
-        0%,100% { transform: translateY(0px); }
-        50% { transform: translateY(-6px); }
-      }
+
       .pulse {
-        animation: pulse 2.4s ease-in-out infinite;
+        animation: pulse 2s ease-in-out infinite;
       }
+
       @keyframes pulse {
-        0%,100% { opacity: 0.45; }
-        50% { opacity: 1; }
+        0%,100% { opacity: 0.3; }
+        50%     { opacity: 1; }
       }
+
       .blink {
         animation: blink 1s step-end infinite;
       }
+
       @keyframes blink {
         50% { opacity: 0; }
       }
+
+      .dash {
+        stroke-dasharray: 14 10;
+        animation: dashMove 18s linear infinite;
+      }
+
+      @keyframes dashMove {
+        to { stroke-dashoffset: -260; }
+      }
+
+      .scan {
+        animation: scanMove 7s linear infinite;
+      }
+
+      @keyframes scanMove {
+        0%   { transform: translateY(-220px); opacity: 0; }
+        15%  { opacity: 0.4; }
+        50%  { opacity: 0.9; }
+        85%  { opacity: 0.4; }
+        100% { transform: translateY(220px); opacity: 0; }
+      }
+
     </style>
+
   </defs>
 
-  <!-- Background -->
-  <rect width="1280" height="640" rx="28" fill="url(#bgGradient)"/>
+  <!-- ====================== -->
+  <!-- MAIN BACKGROUND -->
+  <!-- ====================== -->
 
-  <!-- Decorative grid -->
-  <g opacity="0.08">
-    <path d="M0 80H1280M0 160H1280M0 240H1280M0 320H1280M0 400H1280M0 480H1280M0 560H1280" stroke="#7DD3FC"/>
-    <path d="M80 0V640M160 0V640M240 0V640M320 0V640M400 0V640M480 0V640M560 0V640M640 0V640M720 0V640M800 0V640M880 0V640M960 0V640M1040 0V640M1120 0V640M1200 0V640" stroke="#7DD3FC"/>
+  <rect width="1400" height="620" rx="28" fill="url(#bg)"/>
+
+  <!-- Ambient light -->
+
+  <circle cx="1120" cy="120" r="320" fill="url(#purpleAura)"/>
+  <circle cx="170" cy="490" r="280" fill="url(#cyanAura)"/>
+
+  <!-- ====================== -->
+  <!-- GRID -->
+  <!-- ====================== -->
+
+  <g opacity="0.07">
+    <path
+      d="
+        M0 70H1400
+        M0 140H1400
+        M0 210H1400
+        M0 280H1400
+        M0 350H1400
+        M0 420H1400
+        M0 490H1400
+        M0 560H1400
+      "
+      stroke="#00E5FF"
+    />
+
+    <path
+      d="
+        M70 0V620
+        M140 0V620
+        M210 0V620
+        M280 0V620
+        M350 0V620
+        M420 0V620
+        M490 0V620
+        M560 0V620
+        M630 0V620
+        M700 0V620
+        M770 0V620
+        M840 0V620
+        M910 0V620
+        M980 0V620
+        M1050 0V620
+        M1120 0V620
+        M1190 0V620
+        M1260 0V620
+        M1330 0V620
+      "
+      stroke="#6366F1"
+    />
   </g>
 
-  <!-- Main border -->
-  <rect x="12" y="12" width="1256" height="616" rx="22" stroke="url(#lineGradient)" stroke-width="2.2" opacity="0.95"/>
+  <!-- ====================== -->
+  <!-- OUTER HUD BORDER -->
+  <!-- ====================== -->
 
-  <!-- Top glow line -->
-  <rect x="28" y="26" width="1224" height="1.5" fill="url(#lineGradient)" opacity="0.8" filter="url(#glow)"/>
+  <rect
+    x="10"
+    y="10"
+    width="1380"
+    height="600"
+    rx="24"
+    stroke="url(#neonLine)"
+    stroke-width="2"
+    class="dash"
+    opacity="0.85"
+  />
 
-  <!-- Terminal header -->
-  <circle cx="52" cy="52" r="7" fill="#FF5F56"/>
-  <circle cx="76" cy="52" r="7" fill="#FFBD2E"/>
-  <circle cx="100" cy="52" r="7" fill="#27C93F"/>
+  <!-- Corner HUD accents -->
 
-  <text x="640" y="58" text-anchor="middle" fill="#93A4C3" font-size="16" class="mono">
-    valentino@analytics-lab:~$
+  <path
+    d="M25 95V30H95"
+    stroke="#00E5FF"
+    stroke-width="3"
+    filter="url(#glow)"
+  />
+
+  <path
+    d="M1305 30H1375V95"
+    stroke="#A78BFA"
+    stroke-width="3"
+    filter="url(#glow)"
+  />
+
+  <path
+    d="M25 525V590H95"
+    stroke="#00E5FF"
+    stroke-width="3"
+    filter="url(#glow)"
+  />
+
+  <path
+    d="M1305 590H1375V525"
+    stroke="#A78BFA"
+    stroke-width="3"
+    filter="url(#glow)"
+  />
+
+  <!-- ====================== -->
+  <!-- TOP SYSTEM BAR -->
+  <!-- ====================== -->
+
+  <circle cx="45" cy="47" r="6" fill="#FF5F57"/>
+  <circle cx="67" cy="47" r="6" fill="#FFBD2E"/>
+  <circle cx="89" cy="47" r="6" fill="#28C840"/>
+
+  <text
+    x="700"
+    y="52"
+    text-anchor="middle"
+    fill="#5EEBFF"
+    font-size="14"
+    class="mono"
+  >
+    VALENTINO.OS // ANALYTICS INTERFACE
   </text>
 
-  <!-- Left Panel -->
-  <rect x="42" y="92" width="360" height="500" rx="22" fill="#0C1628" opacity="0.88" stroke="#1E293B"/>
+  <circle
+    cx="1290"
+    cy="47"
+    r="5"
+    fill="#22C55E"
+    class="pulse"
+  />
 
-  <text x="66" y="126" fill="#22D3EE" font-size="18" class="mono">$ profile.load()</text>
-
-  <text x="66" y="165" fill="#7DD3FC" font-size="14" class="mono">
-    <tspan x="66" dy="0">██╗   ██╗ █████╗ ██╗     ███████╗</tspan>
-    <tspan x="66" dy="22">██║   ██║██╔══██╗██║     ██╔════╝</tspan>
-    <tspan x="66" dy="22">██║   ██║███████║██║     █████╗  </tspan>
-    <tspan x="66" dy="22">╚██╗ ██╔╝██╔══██║██║     ██╔══╝  </tspan>
-    <tspan x="66" dy="22"> ╚████╔╝ ██║  ██║███████╗███████╗</tspan>
-    <tspan x="66" dy="22">  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝</tspan>
+  <text
+    x="1304"
+    y="52"
+    fill="#7DD3FC"
+    font-size="11"
+    class="mono"
+  >
+    ONLINE
   </text>
 
-  <text x="66" y="335" fill="#E2E8F0" font-size="28" class="title">VALENTINO</text>
-  <text x="66" y="370" fill="#A5B4FC" font-size="28" class="title">ORIUNDO FLORES</text>
-  <text x="66" y="408" fill="#22D3EE" font-size="16" class="subtitle">Systems Engineer</text>
-  <text x="66" y="432" fill="#C084FC" font-size="16" class="subtitle">Data Analytics → Data Science</text>
+  <!-- ====================== -->
+  <!-- LEFT HUD PANEL -->
+  <!-- ====================== -->
 
-  <rect x="66" y="465" width="120" height="36" rx="18" fill="#0E223A" stroke="#1F3B5C"/>
-  <text x="126" y="488" text-anchor="middle" fill="#7DD3FC" font-size="14" class="label">SQL</text>
+  <rect
+    x="50"
+    y="100"
+    width="365"
+    height="460"
+    rx="22"
+    fill="#07111F"
+    fill-opacity="0.88"
+    stroke="#0EA5E9"
+    stroke-opacity="0.35"
+  />
 
-  <rect x="198" y="465" width="120" height="36" rx="18" fill="#0E223A" stroke="#1F3B5C"/>
-  <text x="258" y="488" text-anchor="middle" fill="#7DD3FC" font-size="14" class="label">Power BI</text>
-
-  <rect x="66" y="515" width="120" height="36" rx="18" fill="#0E223A" stroke="#1F3B5C"/>
-  <text x="126" y="538" text-anchor="middle" fill="#7DD3FC" font-size="14" class="label">Python</text>
-
-  <rect x="198" y="515" width="120" height="36" rx="18" fill="#0E223A" stroke="#1F3B5C"/>
-  <text x="258" y="538" text-anchor="middle" fill="#7DD3FC" font-size="14" class="label">ML Journey</text>
-
-  <!-- Right Main Panel -->
-  <rect x="426" y="92" width="812" height="500" rx="22" fill="#0A1323" opacity="0.9" stroke="#1E293B"/>
-
-  <!-- Section Title -->
-  <text x="456" y="128" fill="#F8FAFC" font-size="30" class="title">DATA PORTFOLIO OS</text>
-  <text x="456" y="154" fill="#94A3B8" font-size="15" class="subtitle">Modern analytics profile • intelligent systems • business insights</text>
-
-  <!-- Top chips -->
-  <rect x="456" y="178" width="170" height="34" rx="17" fill="url(#chipGradient)" stroke="#22324D"/>
-  <text x="541" y="199" text-anchor="middle" fill="#67E8F9" font-size="13" class="label">Data Analytics</text>
-
-  <rect x="640" y="178" width="160" height="34" rx="17" fill="url(#chipGradient)" stroke="#22324D"/>
-  <text x="720" y="199" text-anchor="middle" fill="#C084FC" font-size="13" class="label">Data Science</text>
-
-  <rect x="814" y="178" width="170" height="34" rx="17" fill="url(#chipGradient)" stroke="#22324D"/>
-  <text x="899" y="199" text-anchor="middle" fill="#86EFAC" font-size="13" class="label">EvoCodeTeam</text>
-
-  <!-- Stats mini cards -->
-  <rect x="456" y="236" width="230" height="118" rx="18" fill="#0E1A2D" stroke="#22324D" filter="url(#softShadow)"/>
-  <text x="478" y="264" fill="#7DD3FC" font-size="14" class="small">Core Stack</text>
-  <text x="478" y="294" fill="#F8FAFC" font-size="24" class="title">SQL · Python</text>
-  <text x="478" y="322" fill="#A5B4FC" font-size="15" class="small">Power BI · Excel · Pandas</text>
-  <circle cx="655" cy="265" r="5" fill="#22D3EE" class="pulse"/>
-
-  <rect x="704" y="236" width="250" height="118" rx="18" fill="#0E1A2D" stroke="#22324D" filter="url(#softShadow)"/>
-  <text x="726" y="264" fill="#C084FC" font-size="14" class="small">Current Mission</text>
-  <text x="726" y="296" fill="#F8FAFC" font-size="20" class="title">From dashboards</text>
-  <text x="726" y="322" fill="#F8FAFC" font-size="20" class="title">to predictive thinking</text>
-
-  <rect x="972" y="236" width="236" height="118" rx="18" fill="#0E1A2D" stroke="#22324D" filter="url(#softShadow)"/>
-  <text x="994" y="264" fill="#86EFAC" font-size="14" class="small">Focus Areas</text>
-  <text x="994" y="292" fill="#F8FAFC" font-size="16" class="label">EDA · BI · SQL Analysis</text>
-  <text x="994" y="318" fill="#CBD5E1" font-size="14" class="small">Statistics · ML Foundations</text>
-
-  <!-- Analytics chart card -->
-  <rect x="456" y="378" width="430" height="182" rx="18" fill="#0E1A2D" stroke="#22324D"/>
-  <text x="478" y="406" fill="#F8FAFC" font-size="16" class="label">Growth Radar</text>
-  <text x="478" y="428" fill="#94A3B8" font-size="12" class="small">current learning trajectory</text>
-
-  <!-- Chart axes -->
-  <line x1="492" y1="525" x2="850" y2="525" stroke="#334155" stroke-width="1.5"/>
-  <line x1="492" y1="455" x2="850" y2="455" stroke="#1E293B" stroke-width="1"/>
-  <line x1="492" y1="490" x2="850" y2="490" stroke="#1E293B" stroke-width="1"/>
-
-  <!-- bars -->
-  <rect x="520" y="482" width="34" height="43" rx="6" fill="#22D3EE" class="float1"/>
-  <rect x="590" y="458" width="34" height="67" rx="6" fill="#60A5FA" class="float2"/>
-  <rect x="660" y="432" width="34" height="93" rx="6" fill="#818CF8" class="float3"/>
-  <rect x="730" y="405" width="34" height="120" rx="6" fill="#A78BFA" class="float2"/>
-  <rect x="800" y="445" width="34" height="80" rx="6" fill="#34D399" class="float1"/>
-
-  <text x="537" y="545" text-anchor="middle" fill="#94A3B8" font-size="11" class="small">SQL</text>
-  <text x="607" y="545" text-anchor="middle" fill="#94A3B8" font-size="11" class="small">PBI</text>
-  <text x="677" y="545" text-anchor="middle" fill="#94A3B8" font-size="11" class="small">Python</text>
-  <text x="747" y="545" text-anchor="middle" fill="#94A3B8" font-size="11" class="small">EDA</text>
-  <text x="817" y="545" text-anchor="middle" fill="#94A3B8" font-size="11" class="small">ML</text>
-
-  <!-- roadmap card -->
-  <rect x="904" y="378" width="304" height="182" rx="18" fill="#0E1A2D" stroke="#22324D"/>
-  <text x="926" y="406" fill="#F8FAFC" font-size="16" class="label">Execution Path</text>
-  <text x="926" y="429" fill="#94A3B8" font-size="12" class="small">where data becomes value</text>
-
-  <text x="926" y="462" fill="#67E8F9" font-size="14" class="mono">01  Data Cleaning</text>
-  <text x="926" y="487" fill="#60A5FA" font-size="14" class="mono">02  Exploratory Analysis</text>
-  <text x="926" y="512" fill="#A78BFA" font-size="14" class="mono">03  Visualization &amp; BI</text>
-  <text x="926" y="537" fill="#34D399" font-size="14" class="mono">04  Statistical Thinking</text>
-
-  <text x="926" y="567" fill="#E2E8F0" font-size="14" class="mono">
-    &gt; next: machine_learning.init()<tspan class="blink">█</tspan>
+  <text
+    x="75"
+    y="130"
+    fill="#22D3EE"
+    font-size="13"
+    class="mono"
+  >
+    IDENTITY_NODE
   </text>
+
+  <!-- Tech avatar -->
+
+  <g>
+
+    <circle
+      cx="220"
+      cy="255"
+      r="105"
+      stroke="#00E5FF"
+      stroke-width="1.5"
+      opacity="0.45"
+      class="orbitA"
+    />
+
+    <circle
+      cx="220"
+      cy="255"
+      r="83"
+      stroke="#8B5CF6"
+      stroke-width="1.5"
+      stroke-dasharray="8 10"
+      opacity="0.65"
+      class="orbitB"
+    />
+
+    <circle
+      cx="220"
+      cy="255"
+      r="60"
+      fill="#091525"
+      stroke="url(#cardBorder)"
+      stroke-width="2"
+      filter="url(#glow)"
+    />
+
+    <text
+      x="220"
+      y="267"
+      text-anchor="middle"
+      fill="#F8FAFC"
+      font-size="38"
+      font-weight="750"
+      class="sans"
+    >
+      VO
+    </text>
+
+    <!-- satellites -->
+
+    <circle cx="220" cy="150" r="6" fill="#00E5FF" filter="url(#glow)"/>
+    <circle cx="315" cy="285" r="5" fill="#8B5CF6" filter="url(#glow)"/>
+    <circle cx="135" cy="312" r="5" fill="#38BDF8" filter="url(#glow)"/>
+
+  </g>
+
+  <!-- Identity -->
+
+  <text
+    x="75"
+    y="405"
+    fill="#F8FAFC"
+    font-size="29"
+    font-weight="750"
+    class="sans"
+  >
+    Valentino Oriundo
+  </text>
+
+  <text
+    x="75"
+    y="437"
+    fill="#94A3B8"
+    font-size="17"
+    class="sans"
+  >
+    Systems Engineer
+  </text>
+
+  <text
+    x="75"
+    y="469"
+    fill="#22D3EE"
+    font-size="16"
+    font-weight="650"
+    class="mono"
+  >
+    Data Analytics
+  </text>
+
+  <text
+    x="75"
+    y="495"
+    fill="#A78BFA"
+    font-size="15"
+    class="mono"
+  >
+    Data Science • Machine Learning
+  </text>
+
+  <text
+    x="75"
+    y="530"
+    fill="#64748B"
+    font-size="12"
+    class="mono"
+  >
+    COMMUNITY // EvoCodeTeam
+  </text>
+
+  <!-- ====================== -->
+  <!-- RIGHT CONTENT -->
+  <!-- ====================== -->
+
+  <rect
+    x="450"
+    y="100"
+    width="900"
+    height="460"
+    rx="22"
+    fill="#07101D"
+    fill-opacity="0.9"
+    stroke="#312E81"
+    stroke-opacity="0.55"
+  />
+
+  <!-- heading -->
+
+  <text
+    x="490"
+    y="140"
+    fill="#64748B"
+    font-size="12"
+    letter-spacing="3"
+    class="sans"
+  >
+    PROFESSIONAL DATA PROFILE
+  </text>
+
+  <text
+    x="490"
+    y="194"
+    fill="#F8FAFC"
+    font-size="48"
+    font-weight="800"
+    class="sans"
+    filter="url(#textGlow)"
+  >
+    DATA ANALYTICS
+  </text>
+
+  <text
+    x="490"
+    y="232"
+    fill="#22D3EE"
+    font-size="23"
+    font-weight="650"
+    class="sans"
+  >
+    Business Intelligence
+  </text>
+
+  <text
+    x="752"
+    y="232"
+    fill="#64748B"
+    font-size="23"
+    class="sans"
+  >
+    /
+  </text>
+
+  <text
+    x="775"
+    y="232"
+    fill="#A78BFA"
+    font-size="23"
+    font-weight="650"
+    class="sans"
+  >
+    Data Science
+  </text>
+
+  <text
+    x="490"
+    y="269"
+    fill="#94A3B8"
+    font-size="16"
+    class="sans"
+  >
+    Transforming complex data into useful insights and intelligent decisions.
+  </text>
+
+  <!-- ====================== -->
+  <!-- HUD CARDS -->
+  <!-- ====================== -->
+
+  <g class="float">
+
+    <rect
+      x="490"
+      y="310"
+      width="245"
+      height="110"
+      rx="16"
+      fill="#0A1626"
+      stroke="#00E5FF"
+      stroke-opacity="0.32"
+    />
+
+    <text
+      x="515"
+      y="340"
+      fill="#22D3EE"
+      font-size="11"
+      font-weight="700"
+      letter-spacing="2"
+      class="sans"
+    >
+      ANALYTICS STACK
+    </text>
+
+    <text
+      x="515"
+      y="373"
+      fill="#F1F5F9"
+      font-size="18"
+      font-weight="650"
+      class="sans"
+    >
+      SQL • Power BI
+    </text>
+
+    <text
+      x="515"
+      y="400"
+      fill="#94A3B8"
+      font-size="14"
+      class="sans"
+    >
+      Excel • DAX • Power Query
+    </text>
+
+  </g>
+
+  <g class="floatSlow">
+
+    <rect
+      x="755"
+      y="310"
+      width="245"
+      height="110"
+      rx="16"
+      fill="#0A1626"
+      stroke="#6366F1"
+      stroke-opacity="0.38"
+    />
+
+    <text
+      x="780"
+      y="340"
+      fill="#818CF8"
+      font-size="11"
+      font-weight="700"
+      letter-spacing="2"
+      class="sans"
+    >
+      DATA ENGINE
+    </text>
+
+    <text
+      x="780"
+      y="373"
+      fill="#F1F5F9"
+      font-size="18"
+      font-weight="650"
+      class="sans"
+    >
+      Python • Pandas
+    </text>
+
+    <text
+      x="780"
+      y="400"
+      fill="#94A3B8"
+      font-size="14"
+      class="sans"
+    >
+      NumPy • Matplotlib
+    </text>
+
+  </g>
+
+  <g class="float">
+
+    <rect
+      x="1020"
+      y="310"
+      width="290"
+      height="110"
+      rx="16"
+      fill="#0A1626"
+      stroke="#A78BFA"
+      stroke-opacity="0.4"
+    />
+
+    <text
+      x="1045"
+      y="340"
+      fill="#C084FC"
+      font-size="11"
+      font-weight="700"
+      letter-spacing="2"
+      class="sans"
+    >
+      INTELLIGENCE LAYER
+    </text>
+
+    <text
+      x="1045"
+      y="373"
+      fill="#F1F5F9"
+      font-size="18"
+      font-weight="650"
+      class="sans"
+    >
+      Statistics • ML
+    </text>
+
+    <text
+      x="1045"
+      y="400"
+      fill="#94A3B8"
+      font-size="14"
+      class="sans"
+    >
+      Predictive Analytics
+    </text>
+
+  </g>
+
+  <!-- ====================== -->
+  <!-- TERMINAL -->
+  <!-- ====================== -->
+
+  <rect
+    x="490"
+    y="455"
+    width="820"
+    height="72"
+    rx="14"
+    fill="#050A13"
+    stroke="#172554"
+  />
+
+  <text
+    x="515"
+    y="485"
+    fill="#22D3EE"
+    font-size="12"
+    class="mono"
+  >
+    root@analytics:
+  </text>
+
+  <text
+    x="645"
+    y="485"
+    fill="#E2E8F0"
+    font-size="12"
+    class="mono"
+  >
+    execute --transform-data --generate-insight
+  </text>
+
+  <text
+    x="515"
+    y="510"
+    fill="#64748B"
+    font-size="11"
+    class="mono"
+  >
+    STATUS: DATA PIPELINE READY
+  </text>
+
+  <rect
+    x="740"
+    y="497"
+    width="8"
+    height="16"
+    rx="1"
+    fill="#00E5FF"
+    class="blink"
+  />
+
+  <!-- ====================== -->
+  <!-- SCAN LINE -->
+  <!-- ====================== -->
+
+  <g class="scan">
+
+    <line
+      x1="460"
+      y1="330"
+      x2="1340"
+      y2="330"
+      stroke="#00E5FF"
+      stroke-width="1.4"
+      opacity="0.22"
+      filter="url(#glow)"
+    />
+
+  </g>
+
 </svg>
