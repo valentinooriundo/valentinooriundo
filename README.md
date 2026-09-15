@@ -99,17 +99,25 @@ Most of my work revolves around **SQL, Power BI, Python and Excel**. I'm also st
 
 ---
 
-## What I'm building
+## Areas of Focus
 
-I use this GitHub to document practical work rather than isolated exercises.
+I use this GitHub to document practical projects across data analytics, business intelligence and data science.
 
-**Business Intelligence** — dashboards, KPIs, Power BI, DAX and data modeling.
+### Business Intelligence
 
-**SQL Analytics** — queries built around real business questions, data exploration and reporting.
+Dashboards, KPI analysis, data modeling, Power BI, DAX and Power Query.
 
-**Python Analytics** — data cleaning, exploratory analysis and visualization with Pandas and Python.
+### SQL Analytics
 
-**Data Science** — classification, model evaluation and machine-learning experiments as I expand further into the field.
+Data exploration, reporting and SQL queries focused on real business questions.
+
+### Python Analytics
+
+Data preparation, exploratory data analysis and visualization using Python and Pandas.
+
+### Data Science
+
+Statistical analysis, classification and model evaluation through practical projects.
 
 ---
 
