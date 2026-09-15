@@ -113,31 +113,6 @@ I use this GitHub to document practical work rather than isolated exercises.
 
 ---
 
-## GitHub activity
-
-<p align="center">
-  <img
-    width="420"
-    src="https://github-readme-stats.vercel.app/api?username=valentinooriundo&show_icons=true&hide_border=true&bg_color=07101D&title_color=22D3EE&icon_color=A78BFA&text_color=CBD5E1&rank_icon=github"
-    alt="Valentino Oriundo GitHub stats"
-  />
-  <img
-    width="420"
-    src="https://github-readme-stats.vercel.app/api/top-langs/?username=valentinooriundo&layout=compact&hide_border=true&bg_color=07101D&title_color=22D3EE&text_color=CBD5E1"
-    alt="Most used languages"
-  />
-</p>
-
-<p align="center">
-  <img
-    width="100%"
-    src="https://github-readme-activity-graph.vercel.app/graph?username=valentinooriundo&bg_color=07101D&color=CBD5E1&line=22D3EE&point=A78BFA&area_color=0E7490&area=true&hide_border=true"
-    alt="GitHub activity graph"
-  />
-</p>
-
----
-
 ## Contributions
 
 <p align="center">
