@@ -1,0 +1,341 @@
+<svg
+  width="720"
+  height="900"
+  viewBox="0 0 720 900"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="720" y2="900">
+      <stop stop-color="#040816"/>
+      <stop offset="0.55" stop-color="#081421"/>
+      <stop offset="1" stop-color="#050814"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="90" y1="0" x2="630" y2="0">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="0.5" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+
+    <radialGradient id="aura">
+      <stop stop-color="#22D3EE" stop-opacity=".22"/>
+      <stop offset=".65" stop-color="#22D3EE" stop-opacity=".04"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      .sans {
+        font-family: "Segoe UI", Inter, Arial, sans-serif;
+      }
+
+      .mono {
+        font-family: "Cascadia Code", Consolas, monospace;
+      }
+
+      .float {
+        animation: float 5s ease-in-out infinite;
+      }
+
+      .pulse {
+        animation: pulse 2.2s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-7px); }
+      }
+
+      @keyframes pulse {
+        0%, 100% { opacity: .45; }
+        50% { opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <rect width="720" height="900" rx="34" fill="url(#bg)"/>
+
+  <circle cx="360" cy="330" r="300" fill="url(#aura)"/>
+
+  <g opacity=".06">
+    <path
+      d="M0 90H720 M0 180H720 M0 270H720 M0 360H720
+         M0 450H720 M0 540H720 M0 630H720 M0 720H720 M0 810H720"
+      stroke="#22D3EE"
+    />
+    <path
+      d="M90 0V900 M180 0V900 M270 0V900 M360 0V900
+         M450 0V900 M540 0V900 M630 0V900"
+      stroke="#6366F1"
+    />
+  </g>
+
+  <rect
+    x="14"
+    y="14"
+    width="692"
+    height="872"
+    rx="28"
+    stroke="url(#accent)"
+    stroke-width="2"
+    opacity=".8"
+  />
+
+  <text
+    x="40"
+    y="55"
+    fill="#64748B"
+    font-size="16"
+    class="mono"
+  >
+    valentinooriundo / portfolio
+  </text>
+
+  <circle
+    cx="665"
+    cy="49"
+    r="6"
+    fill="#22C55E"
+    class="pulse"
+  />
+
+  <!-- CAPYBARA -->
+  <g class="float">
+
+    <ellipse
+      cx="360"
+      cy="440"
+      rx="165"
+      ry="30"
+      fill="#020617"
+      opacity=".65"
+    />
+
+    <!-- ears -->
+    <circle cx="280" cy="205" r="47" fill="#835F45"/>
+    <circle cx="440" cy="205" r="47" fill="#835F45"/>
+
+    <circle cx="280" cy="205" r="29" fill="#A87958"/>
+    <circle cx="440" cy="205" r="29" fill="#A87958"/>
+
+    <!-- hoodie -->
+    <ellipse
+      cx="360"
+      cy="335"
+      rx="167"
+      ry="135"
+      fill="#26324A"
+    />
+
+    <ellipse
+      cx="360"
+      cy="265"
+      rx="165"
+      ry="130"
+      fill="#35415D"
+      stroke="#617093"
+      stroke-width="5"
+    />
+
+    <!-- face -->
+    <ellipse
+      cx="360"
+      cy="275"
+      rx="123"
+      ry="97"
+      fill="#B98962"
+    />
+
+    <ellipse
+      cx="360"
+      cy="300"
+      rx="94"
+      ry="66"
+      fill="#E8D7C6"
+    />
+
+    <ellipse cx="292" cy="278" rx="30" ry="40" fill="#76543C"/>
+    <ellipse cx="428" cy="278" rx="30" ry="40" fill="#76543C"/>
+
+    <!-- eyes -->
+    <ellipse cx="323" cy="268" rx="12" ry="17" fill="#081525"/>
+    <ellipse cx="397" cy="268" rx="12" ry="17" fill="#081525"/>
+
+    <circle cx="326" cy="264" r="3.2" fill="white"/>
+    <circle cx="400" cy="264" r="3.2" fill="white"/>
+
+    <!-- nose -->
+    <ellipse cx="360" cy="302" rx="14" ry="10" fill="#42281F"/>
+
+    <path
+      d="M360 312V322"
+      stroke="#42281F"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M360 322C352 330 344 331 337 327"
+      stroke="#42281F"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <path
+      d="M360 322C368 330 376 331 383 327"
+      stroke="#42281F"
+      stroke-width="3"
+      stroke-linecap="round"
+    />
+
+    <!-- laptop -->
+    <rect
+      x="250"
+      y="360"
+      width="220"
+      height="132"
+      rx="16"
+      fill="#B7BDD1"
+      stroke="#66708F"
+      stroke-width="4"
+    />
+
+    <rect
+      x="260"
+      y="370"
+      width="200"
+      height="108"
+      rx="12"
+      fill="#AEB5CB"
+    />
+
+    <circle
+      cx="360"
+      cy="422"
+      r="20"
+      fill="#081525"
+      stroke="#22D3EE"
+      stroke-width="3"
+      filter="url(#glow)"
+    />
+
+    <text
+      x="360"
+      y="429"
+      text-anchor="middle"
+      fill="#22D3EE"
+      font-size="19"
+      font-weight="700"
+      class="mono"
+    >
+      VO
+    </text>
+
+    <rect
+      x="235"
+      y="489"
+      width="250"
+      height="17"
+      rx="6"
+      fill="#38445F"
+    />
+
+  </g>
+
+  <!-- NAME -->
+  <text
+    x="360"
+    y="575"
+    text-anchor="middle"
+    fill="#F8FAFC"
+    font-size="43"
+    font-weight="750"
+    class="sans"
+  >
+    Valentino Oriundo
+  </text>
+
+  <text
+    x="360"
+    y="618"
+    text-anchor="middle"
+    fill="#CBD5E1"
+    font-size="23"
+    class="sans"
+  >
+    Systems Engineer
+  </text>
+
+  <text
+    x="360"
+    y="659"
+    text-anchor="middle"
+    fill="#22D3EE"
+    font-size="21"
+    font-weight="600"
+    class="sans"
+  >
+    Data Analytics · Business Intelligence
+  </text>
+
+  <text
+    x="360"
+    y="693"
+    text-anchor="middle"
+    fill="#A78BFA"
+    font-size="20"
+    font-weight="600"
+    class="sans"
+  >
+    Data Science
+  </text>
+
+  <!-- STACK -->
+  <g>
+    <rect x="88" y="737" width="120" height="46" rx="23" fill="#0B1628" stroke="#22D3EE" stroke-opacity=".4"/>
+    <text x="148" y="767" text-anchor="middle" fill="#E2E8F0" font-size="16" class="sans">SQL</text>
+
+    <rect x="218" y="737" width="130" height="46" rx="23" fill="#0B1628" stroke="#F2C811" stroke-opacity=".4"/>
+    <text x="283" y="767" text-anchor="middle" fill="#E2E8F0" font-size="16" class="sans">Power BI</text>
+
+    <rect x="358" y="737" width="120" height="46" rx="23" fill="#0B1628" stroke="#38BDF8" stroke-opacity=".4"/>
+    <text x="418" y="767" text-anchor="middle" fill="#E2E8F0" font-size="16" class="sans">Python</text>
+
+    <rect x="488" y="737" width="120" height="46" rx="23" fill="#0B1628" stroke="#21A366" stroke-opacity=".4"/>
+    <text x="548" y="767" text-anchor="middle" fill="#E2E8F0" font-size="16" class="sans">Excel</text>
+  </g>
+
+  <!-- EVOCODETEAM -->
+  <rect
+    x="150"
+    y="817"
+    width="420"
+    height="50"
+    rx="25"
+    fill="#081525"
+    stroke="url(#accent)"
+    stroke-opacity=".55"
+  />
+
+  <circle cx="180" cy="842" r="8" fill="#22D3EE" class="pulse"/>
+
+  <text
+    x="360"
+    y="849"
+    text-anchor="middle"
+    fill="#CBD5E1"
+    font-size="17"
+    font-weight="600"
+    class="sans"
+  >
+    Member of EvoCodeTeam
+  </text>
+</svg>
