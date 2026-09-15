@@ -1,750 +1,331 @@
-
-<svg
-  width="1400"
-  height="620"
-  viewBox="0 0 1400 620"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-
+<svg width="1400" height="620" viewBox="0 0 1400 620" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-
-    <!-- ====================== -->
-    <!-- BACKGROUND GRADIENTS -->
-    <!-- ====================== -->
-
-    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="620">
-      <stop offset="0%" stop-color="#030712"/>
-      <stop offset="45%" stop-color="#07111F"/>
-      <stop offset="100%" stop-color="#050816"/>
+    <!-- =========================
+         GRADIENTS / FILTERS
+    ========================== -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1400" y2="620" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#040816"/>
+      <stop offset="45%" stop-color="#08111F"/>
+      <stop offset="100%" stop-color="#050814"/>
     </linearGradient>
 
-    <radialGradient id="cyanAura">
-      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.28"/>
-      <stop offset="60%" stop-color="#00E5FF" stop-opacity="0.06"/>
-      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    <radialGradient id="cyanAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(250 480) rotate(90) scale(220 320)">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#22D3EE" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
     </radialGradient>
 
-    <radialGradient id="purpleAura">
-      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.28"/>
-      <stop offset="60%" stop-color="#8B5CF6" stop-opacity="0.06"/>
+    <radialGradient id="purpleAura" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1100 120) rotate(90) scale(220 360)">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#8B5CF6" stop-opacity="0.08"/>
       <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
     </radialGradient>
 
-    <linearGradient id="neonLine" x1="0" y1="0" x2="1400" y2="0">
-      <stop offset="0%" stop-color="#00E5FF"/>
+    <linearGradient id="neonBorder" x1="0" y1="0" x2="1400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#22D3EE"/>
       <stop offset="50%" stop-color="#6366F1"/>
-      <stop offset="100%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
     </linearGradient>
 
-    <linearGradient id="cardBorder" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#00E5FF"/>
-      <stop offset="100%" stop-color="#6D28D9"/>
+    <linearGradient id="cardStroke" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
     </linearGradient>
 
-    <!-- ====================== -->
-    <!-- FILTERS -->
-    <!-- ====================== -->
+    <linearGradient id="monitorGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0EA5E9"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
 
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
 
-    <filter id="softGlow">
-      <feGaussianBlur stdDeviation="18"/>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#22D3EE" flood-opacity="0.25"/>
     </filter>
-
-    <filter id="textGlow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- ====================== -->
-    <!-- CSS -->
-    <!-- ====================== -->
 
     <style>
-
       .sans {
-        font-family:
-          "Segoe UI Variable",
-          "Segoe UI",
-          Inter,
-          Arial,
-          sans-serif;
+        font-family: "Segoe UI Variable","Segoe UI",Inter,Arial,sans-serif;
       }
-
       .mono {
-        font-family:
-          "Cascadia Code",
-          "JetBrains Mono",
-          Consolas,
-          monospace;
+        font-family: "JetBrains Mono","Cascadia Code",Consolas,monospace;
       }
-
-      .orbitA {
-        animation: rotateA 20s linear infinite;
-        transform-origin: 220px 255px;
-      }
-
-      @keyframes rotateA {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-
-      .orbitB {
-        animation: rotateB 14s linear infinite reverse;
-        transform-origin: 220px 255px;
-      }
-
-      @keyframes rotateB {
-        from { transform: rotate(0deg); }
-        to   { transform: rotate(360deg); }
-      }
-
       .float {
         animation: float 5s ease-in-out infinite;
+        transform-origin: center;
       }
-
-      @keyframes float {
-        0%,100% { transform: translateY(0px); }
-        50%     { transform: translateY(-8px); }
-      }
-
       .floatSlow {
         animation: floatSlow 7s ease-in-out infinite;
+        transform-origin: center;
       }
-
-      @keyframes floatSlow {
-        0%,100% { transform: translateY(0px); }
-        50%     { transform: translateY(6px); }
-      }
-
       .pulse {
-        animation: pulse 2s ease-in-out infinite;
+        animation: pulse 2.1s ease-in-out infinite;
       }
-
-      @keyframes pulse {
-        0%,100% { opacity: 0.3; }
-        50%     { opacity: 1; }
-      }
-
       .blink {
         animation: blink 1s step-end infinite;
       }
-
-      @keyframes blink {
-        50% { opacity: 0; }
-      }
-
       .dash {
         stroke-dasharray: 14 10;
         animation: dashMove 18s linear infinite;
       }
-
-      @keyframes dashMove {
-        to { stroke-dashoffset: -260; }
-      }
-
       .scan {
         animation: scanMove 7s linear infinite;
       }
-
-      @keyframes scanMove {
-        0%   { transform: translateY(-220px); opacity: 0; }
-        15%  { opacity: 0.4; }
-        50%  { opacity: 0.9; }
-        85%  { opacity: 0.4; }
-        100% { transform: translateY(220px); opacity: 0; }
+      @keyframes float {
+        0%,100% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
       }
-
+      @keyframes floatSlow {
+        0%,100% { transform: translateY(0px); }
+        50% { transform: translateY(6px); }
+      }
+      @keyframes pulse {
+        0%,100% { opacity: .4; }
+        50% { opacity: 1; }
+      }
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+      @keyframes dashMove {
+        to { stroke-dashoffset: -260; }
+      }
+      @keyframes scanMove {
+        0%   { transform: translateY(-180px); opacity: 0; }
+        20%  { opacity: .18; }
+        50%  { opacity: .75; }
+        80%  { opacity: .18; }
+        100% { transform: translateY(180px); opacity: 0; }
+      }
     </style>
-
   </defs>
 
-  <!-- ====================== -->
-  <!-- MAIN BACKGROUND -->
-  <!-- ====================== -->
-
+  <!-- =========================
+       BACKGROUND
+  ========================== -->
   <rect width="1400" height="620" rx="28" fill="url(#bg)"/>
+  <circle cx="230" cy="500" r="220" fill="url(#cyanAura)"/>
+  <circle cx="1120" cy="130" r="260" fill="url(#purpleAura)"/>
 
-  <!-- Ambient light -->
-
-  <circle cx="1120" cy="120" r="320" fill="url(#purpleAura)"/>
-  <circle cx="170" cy="490" r="280" fill="url(#cyanAura)"/>
-
-  <!-- ====================== -->
-  <!-- GRID -->
-  <!-- ====================== -->
-
+  <!-- grid -->
   <g opacity="0.07">
-    <path
-      d="
-        M0 70H1400
-        M0 140H1400
-        M0 210H1400
-        M0 280H1400
-        M0 350H1400
-        M0 420H1400
-        M0 490H1400
-        M0 560H1400
-      "
-      stroke="#00E5FF"
-    />
-
-    <path
-      d="
-        M70 0V620
-        M140 0V620
-        M210 0V620
-        M280 0V620
-        M350 0V620
-        M420 0V620
-        M490 0V620
-        M560 0V620
-        M630 0V620
-        M700 0V620
-        M770 0V620
-        M840 0V620
-        M910 0V620
-        M980 0V620
-        M1050 0V620
-        M1120 0V620
-        M1190 0V620
-        M1260 0V620
-        M1330 0V620
-      "
-      stroke="#6366F1"
-    />
+    <path d="M0 70H1400 M0 140H1400 M0 210H1400 M0 280H1400 M0 350H1400 M0 420H1400 M0 490H1400 M0 560H1400" stroke="#22D3EE"/>
+    <path d="M70 0V620 M140 0V620 M210 0V620 M280 0V620 M350 0V620 M420 0V620 M490 0V620 M560 0V620 M630 0V620 M700 0V620 M770 0V620 M840 0V620 M910 0V620 M980 0V620 M1050 0V620 M1120 0V620 M1190 0V620 M1260 0V620 M1330 0V620" stroke="#6366F1"/>
   </g>
 
-  <!-- ====================== -->
-  <!-- OUTER HUD BORDER -->
-  <!-- ====================== -->
+  <!-- outer border -->
+  <rect x="10" y="10" width="1380" height="600" rx="24" stroke="url(#neonBorder)" stroke-width="2" class="dash" opacity="0.9"/>
 
-  <rect
-    x="10"
-    y="10"
-    width="1380"
-    height="600"
-    rx="24"
-    stroke="url(#neonLine)"
-    stroke-width="2"
-    class="dash"
-    opacity="0.85"
-  />
+  <!-- corner accents -->
+  <path d="M26 95V30H95" stroke="#22D3EE" stroke-width="3" filter="url(#glow)"/>
+  <path d="M1305 30H1374V95" stroke="#A78BFA" stroke-width="3" filter="url(#glow)"/>
+  <path d="M26 525V590H95" stroke="#22D3EE" stroke-width="3" filter="url(#glow)"/>
+  <path d="M1305 590H1374V525" stroke="#A78BFA" stroke-width="3" filter="url(#glow)"/>
 
-  <!-- Corner HUD accents -->
+  <!-- top bar -->
+  <circle cx="46" cy="47" r="6" fill="#FF5F57"/>
+  <circle cx="68" cy="47" r="6" fill="#FFBD2E"/>
+  <circle cx="90" cy="47" r="6" fill="#28C840"/>
 
-  <path
-    d="M25 95V30H95"
-    stroke="#00E5FF"
-    stroke-width="3"
-    filter="url(#glow)"
-  />
+  <text x="700" y="52" text-anchor="middle" fill="#7DD3FC" font-size="14" class="mono">VALENTINO.OS // DATA INTERFACE</text>
+  <circle cx="1288" cy="47" r="5" fill="#22C55E" class="pulse"/>
+  <text x="1302" y="52" fill="#7DD3FC" font-size="11" class="mono">ONLINE</text>
 
-  <path
-    d="M1305 30H1375V95"
-    stroke="#A78BFA"
-    stroke-width="3"
-    filter="url(#glow)"
-  />
+  <!-- =========================
+       LEFT SECTION / CAPYBARA
+  ========================== -->
 
-  <path
-    d="M25 525V590H95"
-    stroke="#00E5FF"
-    stroke-width="3"
-    filter="url(#glow)"
-  />
+  <!-- cyber avatar panel -->
+  <rect x="52" y="98" width="410" height="472" rx="24" fill="#07111F" fill-opacity="0.88" stroke="#0EA5E9" stroke-opacity="0.28"/>
 
-  <path
-    d="M1305 590H1375V525"
-    stroke="#A78BFA"
-    stroke-width="3"
-    filter="url(#glow)"
-  />
+  <text x="78" y="132" fill="#22D3EE" font-size="13" class="mono">IDENTITY_NODE // CAPY-ANALYTICS</text>
 
-  <!-- ====================== -->
-  <!-- TOP SYSTEM BAR -->
-  <!-- ====================== -->
+  <!-- monitors behind -->
+  <g class="floatSlow">
+    <rect x="100" y="154" width="120" height="72" rx="10" fill="#081525" stroke="url(#monitorGlow)" stroke-opacity="0.65"/>
+    <rect x="240" y="142" width="132" height="78" rx="10" fill="#081525" stroke="url(#monitorGlow)" stroke-opacity="0.65"/>
+    <rect x="140" y="222" width="150" height="82" rx="10" fill="#081525" stroke="url(#monitorGlow)" stroke-opacity="0.5"/>
 
-  <circle cx="45" cy="47" r="6" fill="#FF5F57"/>
-  <circle cx="67" cy="47" r="6" fill="#FFBD2E"/>
-  <circle cx="89" cy="47" r="6" fill="#28C840"/>
-
-  <text
-    x="700"
-    y="52"
-    text-anchor="middle"
-    fill="#5EEBFF"
-    font-size="14"
-    class="mono"
-  >
-    VALENTINO.OS // ANALYTICS INTERFACE
-  </text>
-
-  <circle
-    cx="1290"
-    cy="47"
-    r="5"
-    fill="#22C55E"
-    class="pulse"
-  />
-
-  <text
-    x="1304"
-    y="52"
-    fill="#7DD3FC"
-    font-size="11"
-    class="mono"
-  >
-    ONLINE
-  </text>
-
-  <!-- ====================== -->
-  <!-- LEFT HUD PANEL -->
-  <!-- ====================== -->
-
-  <rect
-    x="50"
-    y="100"
-    width="365"
-    height="460"
-    rx="22"
-    fill="#07111F"
-    fill-opacity="0.88"
-    stroke="#0EA5E9"
-    stroke-opacity="0.35"
-  />
-
-  <text
-    x="75"
-    y="130"
-    fill="#22D3EE"
-    font-size="13"
-    class="mono"
-  >
-    IDENTITY_NODE
-  </text>
-
-  <!-- Tech avatar -->
-
-  <g>
-
-    <circle
-      cx="220"
-      cy="255"
-      r="105"
-      stroke="#00E5FF"
-      stroke-width="1.5"
-      opacity="0.45"
-      class="orbitA"
-    />
-
-    <circle
-      cx="220"
-      cy="255"
-      r="83"
-      stroke="#8B5CF6"
-      stroke-width="1.5"
-      stroke-dasharray="8 10"
-      opacity="0.65"
-      class="orbitB"
-    />
-
-    <circle
-      cx="220"
-      cy="255"
-      r="60"
-      fill="#091525"
-      stroke="url(#cardBorder)"
-      stroke-width="2"
-      filter="url(#glow)"
-    />
-
-    <text
-      x="220"
-      y="267"
-      text-anchor="middle"
-      fill="#F8FAFC"
-      font-size="38"
-      font-weight="750"
-      class="sans"
-    >
-      VO
-    </text>
-
-    <!-- satellites -->
-
-    <circle cx="220" cy="150" r="6" fill="#00E5FF" filter="url(#glow)"/>
-    <circle cx="315" cy="285" r="5" fill="#8B5CF6" filter="url(#glow)"/>
-    <circle cx="135" cy="312" r="5" fill="#38BDF8" filter="url(#glow)"/>
-
+    <path d="M116 208L142 190L163 198L188 176L206 184" stroke="#22D3EE" stroke-width="2" filter="url(#glow)"/>
+    <rect x="252" y="156" width="24" height="8" rx="4" fill="#22D3EE"/>
+    <rect x="252" y="172" width="52" height="8" rx="4" fill="#6366F1"/>
+    <rect x="252" y="188" width="36" height="8" rx="4" fill="#A78BFA"/>
+    <rect x="158" y="240" width="16" height="44" rx="6" fill="#22D3EE"/>
+    <rect x="180" y="230" width="16" height="54" rx="6" fill="#60A5FA"/>
+    <rect x="202" y="216" width="16" height="68" rx="6" fill="#8B5CF6"/>
+    <rect x="224" y="248" width="16" height="36" rx="6" fill="#34D399"/>
   </g>
 
-  <!-- Identity -->
-
-  <text
-    x="75"
-    y="405"
-    fill="#F8FAFC"
-    font-size="29"
-    font-weight="750"
-    class="sans"
-  >
-    Valentino Oriundo
-  </text>
-
-  <text
-    x="75"
-    y="437"
-    fill="#94A3B8"
-    font-size="17"
-    class="sans"
-  >
-    Systems Engineer
-  </text>
-
-  <text
-    x="75"
-    y="469"
-    fill="#22D3EE"
-    font-size="16"
-    font-weight="650"
-    class="mono"
-  >
-    Data Analytics
-  </text>
-
-  <text
-    x="75"
-    y="495"
-    fill="#A78BFA"
-    font-size="15"
-    class="mono"
-  >
-    Data Science • Machine Learning
-  </text>
-
-  <text
-    x="75"
-    y="530"
-    fill="#64748B"
-    font-size="12"
-    class="mono"
-  >
-    COMMUNITY // EvoCodeTeam
-  </text>
-
-  <!-- ====================== -->
-  <!-- RIGHT CONTENT -->
-  <!-- ====================== -->
-
-  <rect
-    x="450"
-    y="100"
-    width="900"
-    height="460"
-    rx="22"
-    fill="#07101D"
-    fill-opacity="0.9"
-    stroke="#312E81"
-    stroke-opacity="0.55"
-  />
-
-  <!-- heading -->
-
-  <text
-    x="490"
-    y="140"
-    fill="#64748B"
-    font-size="12"
-    letter-spacing="3"
-    class="sans"
-  >
-    PROFESSIONAL DATA PROFILE
-  </text>
-
-  <text
-    x="490"
-    y="194"
-    fill="#F8FAFC"
-    font-size="48"
-    font-weight="800"
-    class="sans"
-    filter="url(#textGlow)"
-  >
-    DATA ANALYTICS
-  </text>
-
-  <text
-    x="490"
-    y="232"
-    fill="#22D3EE"
-    font-size="23"
-    font-weight="650"
-    class="sans"
-  >
-    Business Intelligence
-  </text>
-
-  <text
-    x="752"
-    y="232"
-    fill="#64748B"
-    font-size="23"
-    class="sans"
-  >
-    /
-  </text>
-
-  <text
-    x="775"
-    y="232"
-    fill="#A78BFA"
-    font-size="23"
-    font-weight="650"
-    class="sans"
-  >
-    Data Science
-  </text>
-
-  <text
-    x="490"
-    y="269"
-    fill="#94A3B8"
-    font-size="16"
-    class="sans"
-  >
-    Transforming complex data into useful insights and intelligent decisions.
-  </text>
-
-  <!-- ====================== -->
-  <!-- HUD CARDS -->
-  <!-- ====================== -->
-
+  <!-- capybara group -->
   <g class="float">
+    <!-- shadow -->
+    <ellipse cx="248" cy="525" rx="125" ry="26" fill="#08111F"/>
 
-    <rect
-      x="490"
-      y="310"
-      width="245"
-      height="110"
-      rx="16"
-      fill="#0A1626"
-      stroke="#00E5FF"
-      stroke-opacity="0.32"
-    />
+    <!-- ears -->
+    <ellipse cx="190" cy="210" rx="34" ry="42" fill="#8E6A4B"/>
+    <ellipse cx="190" cy="210" rx="22" ry="28" fill="#B08360"/>
+    <ellipse cx="305" cy="210" rx="34" ry="42" fill="#8E6A4B"/>
+    <ellipse cx="305" cy="210" rx="22" ry="28" fill="#B08360"/>
 
-    <text
-      x="515"
-      y="340"
-      fill="#22D3EE"
-      font-size="11"
-      font-weight="700"
-      letter-spacing="2"
-      class="sans"
-    >
-      ANALYTICS STACK
-    </text>
+    <!-- hoodie back -->
+    <ellipse cx="248" cy="335" rx="120" ry="118" fill="#2A334C"/>
+    <ellipse cx="248" cy="334" rx="100" ry="98" fill="#394564"/>
 
-    <text
-      x="515"
-      y="373"
-      fill="#F1F5F9"
-      font-size="18"
-      font-weight="650"
-      class="sans"
-    >
-      SQL • Power BI
-    </text>
+    <!-- hood -->
+    <ellipse cx="248" cy="245" rx="120" ry="96" fill="#36415D" stroke="#5B6A8F" stroke-width="4"/>
 
-    <text
-      x="515"
-      y="400"
-      fill="#94A3B8"
-      font-size="14"
-      class="sans"
-    >
-      Excel • DAX • Power Query
-    </text>
+    <!-- face -->
+    <ellipse cx="248" cy="255" rx="88" ry="70" fill="#B98962"/>
+    <ellipse cx="248" cy="268" rx="70" ry="48" fill="#E9D9C7"/>
 
+    <!-- cheeks -->
+    <ellipse cx="197" cy="256" rx="22" ry="28" fill="#7D5A40" opacity="0.9"/>
+    <ellipse cx="299" cy="256" rx="22" ry="28" fill="#7D5A40" opacity="0.9"/>
+
+    <!-- eyes -->
+    <ellipse cx="220" cy="248" rx="9" ry="13" fill="#0B1323"/>
+    <ellipse cx="276" cy="248" rx="9" ry="13" fill="#0B1323"/>
+    <circle cx="222" cy="245" r="2.4" fill="#F8FAFC"/>
+    <circle cx="278" cy="245" r="2.4" fill="#F8FAFC"/>
+
+    <!-- nose -->
+    <ellipse cx="248" cy="270" rx="10" ry="7" fill="#4C2D22"/>
+    <path d="M248 277V284" stroke="#4C2D22" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M248 284C243 289 237 289 232 287" stroke="#4C2D22" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M248 284C253 289 259 289 264 287" stroke="#4C2D22" stroke-width="2.4" stroke-linecap="round"/>
+
+    <!-- hoodie opening -->
+    <path d="M160 240C180 195 317 195 337 240C333 292 302 320 248 320C194 320 164 292 160 240Z" fill="none" stroke="#A5B4FC" stroke-width="5" opacity="0.7"/>
+
+    <!-- hoodie strings -->
+    <line x1="226" y1="331" x2="220" y2="360" stroke="#D7E1F8" stroke-width="4" stroke-linecap="round"/>
+    <line x1="270" y1="331" x2="276" y2="360" stroke="#D7E1F8" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="219" cy="364" r="6" fill="#E2E8F0"/>
+    <circle cx="277" cy="364" r="6" fill="#E2E8F0"/>
+
+    <!-- body -->
+    <ellipse cx="248" cy="388" rx="112" ry="82" fill="#404C6B"/>
+    <path d="M170 396C174 358 208 332 248 332C288 332 322 358 326 396V454H170V396Z" fill="#455271"/>
+
+    <!-- paws -->
+    <ellipse cx="165" cy="478" rx="34" ry="38" fill="#6B4F39"/>
+    <ellipse cx="330" cy="478" rx="34" ry="38" fill="#6B4F39"/>
+
+    <ellipse cx="165" cy="478" rx="28" ry="30" fill="#7B5B42"/>
+    <ellipse cx="330" cy="478" rx="28" ry="30" fill="#7B5B42"/>
+
+    <ellipse cx="165" cy="489" rx="14" ry="16" fill="#F0E7DD"/>
+    <ellipse cx="330" cy="489" rx="14" ry="16" fill="#F0E7DD"/>
+    <circle cx="152" cy="472" r="5.5" fill="#F0E7DD"/>
+    <circle cx="162" cy="466" r="5.5" fill="#F0E7DD"/>
+    <circle cx="176" cy="467" r="5.5" fill="#F0E7DD"/>
+    <circle cx="341" cy="472" r="5.5" fill="#F0E7DD"/>
+    <circle cx="331" cy="466" r="5.5" fill="#F0E7DD"/>
+    <circle cx="317" cy="467" r="5.5" fill="#F0E7DD"/>
+
+    <!-- laptop -->
+    <rect x="178" y="388" width="140" height="88" rx="12" fill="#C9CBD9" stroke="#8086A6" stroke-width="3"/>
+    <rect x="184" y="394" width="128" height="74" rx="10" fill="#BFC3D7"/>
+    <rect x="170" y="474" width="156" height="14" rx="4" fill="#49557A"/>
+    <rect x="184" y="480" width="128" height="6" rx="3" fill="#303B59"/>
+
+    <!-- laptop mini evo mark -->
+    <g transform="translate(248 430)">
+      <path d="M-16 -6C-7 -17 9 -15 17 -5C24 4 23 15 15 22C6 30 -10 29 -18 20C-24 13 -24 2 -16 -6Z" fill="#22C55E"/>
+      <path d="M-9 4L-2 -6L8 -5L12 4L2 12L-9 4Z" fill="#F8FAFC"/>
+      <path d="M-1 12C4 16 7 20 6 26" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+      <path d="M-6 14C-10 18 -13 21 -13 26" stroke="#22C55E" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- paws on laptop -->
+    <ellipse cx="204" cy="404" rx="18" ry="12" fill="#8C6748"/>
+    <ellipse cx="292" cy="404" rx="18" ry="12" fill="#8C6748"/>
+  </g>
+
+  <!-- tiny speech bubble icon -->
+  <g transform="translate(352 190)" class="floatSlow">
+    <circle cx="0" cy="0" r="24" fill="#EF4444" stroke="#1D4ED8" stroke-width="5"/>
+    <path d="M-4 -8C-13 -8 -18 -1 -18 6C-18 11 -15 15 -10 17L-12 24L-4 20C-2 20 0 20 2 20C13 20 20 13 20 4C20 -5 11 -8 -4 -8Z" fill="#EF4444" opacity="0.18"/>
+    <circle cx="-8" cy="-2" r="4" fill="#F8FAFC"/>
+    <circle cx="8" cy="-2" r="4" fill="#F8FAFC"/>
+    <path d="M-8 8C-8 15 -3 18 0 18C3 18 8 15 8 8" stroke="#F8FAFC" stroke-width="3" stroke-linecap="round"/>
+  </g>
+
+  <!-- =========================
+       RIGHT SECTION
+  ========================== -->
+  <rect x="490" y="98" width="860" height="472" rx="24" fill="#07101D" fill-opacity="0.88" stroke="#4C1D95" stroke-opacity="0.4"/>
+
+  <text x="530" y="132" fill="#64748B" font-size="12" letter-spacing="3" class="sans">PROFESSIONAL PROFILE</text>
+
+  <text x="530" y="188" fill="#F8FAFC" font-size="48" font-weight="800" class="sans">VALENTINO ORIUNDO</text>
+  <text x="530" y="225" fill="#94A3B8" font-size="20" class="sans">Systems Engineer</text>
+
+  <text x="530" y="262" fill="#22D3EE" font-size="23" font-weight="650" class="sans">Data Analytics</text>
+  <text x="700" y="262" fill="#64748B" font-size="23" class="sans">•</text>
+  <text x="724" y="262" fill="#60A5FA" font-size="23" font-weight="650" class="sans">Business Intelligence</text>
+  <text x="975" y="262" fill="#64748B" font-size="23" class="sans">•</text>
+  <text x="999" y="262" fill="#A78BFA" font-size="23" font-weight="650" class="sans">Data Science</text>
+
+  <text x="530" y="295" fill="#CBD5E1" font-size="16" class="sans">Transforming data into insights and intelligent decisions.</text>
+
+  <!-- cards -->
+  <g class="float">
+    <rect x="530" y="330" width="220" height="108" rx="18" fill="#091525" stroke="#22D3EE" stroke-opacity="0.4"/>
+    <text x="555" y="360" fill="#22D3EE" font-size="11" font-weight="700" letter-spacing="2" class="sans">ANALYTICS STACK</text>
+    <text x="555" y="392" fill="#F8FAFC" font-size="18" font-weight="650" class="sans">SQL • Power BI</text>
+    <text x="555" y="417" fill="#94A3B8" font-size="14" class="sans">Excel • DAX • Power Query</text>
   </g>
 
   <g class="floatSlow">
-
-    <rect
-      x="755"
-      y="310"
-      width="245"
-      height="110"
-      rx="16"
-      fill="#0A1626"
-      stroke="#6366F1"
-      stroke-opacity="0.38"
-    />
-
-    <text
-      x="780"
-      y="340"
-      fill="#818CF8"
-      font-size="11"
-      font-weight="700"
-      letter-spacing="2"
-      class="sans"
-    >
-      DATA ENGINE
-    </text>
-
-    <text
-      x="780"
-      y="373"
-      fill="#F1F5F9"
-      font-size="18"
-      font-weight="650"
-      class="sans"
-    >
-      Python • Pandas
-    </text>
-
-    <text
-      x="780"
-      y="400"
-      fill="#94A3B8"
-      font-size="14"
-      class="sans"
-    >
-      NumPy • Matplotlib
-    </text>
-
+    <rect x="770" y="330" width="220" height="108" rx="18" fill="#091525" stroke="#6366F1" stroke-opacity="0.45"/>
+    <text x="795" y="360" fill="#818CF8" font-size="11" font-weight="700" letter-spacing="2" class="sans">DATA TOOLKIT</text>
+    <text x="795" y="392" fill="#F8FAFC" font-size="18" font-weight="650" class="sans">Python • Pandas</text>
+    <text x="795" y="417" fill="#94A3B8" font-size="14" class="sans">NumPy • Matplotlib</text>
   </g>
 
   <g class="float">
-
-    <rect
-      x="1020"
-      y="310"
-      width="290"
-      height="110"
-      rx="16"
-      fill="#0A1626"
-      stroke="#A78BFA"
-      stroke-opacity="0.4"
-    />
-
-    <text
-      x="1045"
-      y="340"
-      fill="#C084FC"
-      font-size="11"
-      font-weight="700"
-      letter-spacing="2"
-      class="sans"
-    >
-      INTELLIGENCE LAYER
-    </text>
-
-    <text
-      x="1045"
-      y="373"
-      fill="#F1F5F9"
-      font-size="18"
-      font-weight="650"
-      class="sans"
-    >
-      Statistics • ML
-    </text>
-
-    <text
-      x="1045"
-      y="400"
-      fill="#94A3B8"
-      font-size="14"
-      class="sans"
-    >
-      Predictive Analytics
-    </text>
-
+    <rect x="1010" y="330" width="250" height="108" rx="18" fill="#091525" stroke="#A78BFA" stroke-opacity="0.45"/>
+    <text x="1035" y="360" fill="#C084FC" font-size="11" font-weight="700" letter-spacing="2" class="sans">INTELLIGENCE LAYER</text>
+    <text x="1035" y="392" fill="#F8FAFC" font-size="18" font-weight="650" class="sans">Statistics • ML</text>
+    <text x="1035" y="417" fill="#94A3B8" font-size="14" class="sans">Predictive Analytics</text>
   </g>
 
-  <!-- ====================== -->
-  <!-- TERMINAL -->
-  <!-- ====================== -->
+  <!-- EvoCodeTeam badge -->
+  <g transform="translate(1098 180)" class="floatSlow">
+    <rect x="-20" y="-26" width="220" height="110" rx="18" fill="#091525" stroke="url(#cardStroke)" stroke-opacity="0.55"/>
+    <!-- orbit planet -->
+    <g transform="translate(22 11)">
+      <circle cx="32" cy="28" r="23" fill="#1D4ED8" stroke="#081B3A" stroke-width="3"/>
+      <path d="M18 18C23 13 29 12 32 13C37 14 44 18 46 23C41 22 37 25 34 28C28 33 21 34 16 31C13 29 11 24 18 18Z" fill="#7DD3FC"/>
+      <path d="M28 36C35 35 41 30 44 24C50 27 55 31 58 36C52 40 47 42 41 42C35 42 30 40 28 36Z" fill="#38BDF8"/>
+      <ellipse cx="34" cy="28" rx="38" ry="11" fill="none" stroke="#E5E7EB" stroke-width="5"/>
+      <ellipse cx="34" cy="28" rx="38" ry="11" fill="none" stroke="#0F172A" stroke-width="1.5" opacity="0.7"/>
+      <path d="M55 10C59 10 63 13 65 17C66 20 66 23 64 26" stroke="#F97316" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="71" cy="10" r="4" fill="#60A5FA"/>
+      <circle cx="80" cy="18" r="3.5" fill="#0EA5E9"/>
+      <circle cx="82" cy="31" r="3.5" fill="#1E293B"/>
+    </g>
 
-  <rect
-    x="490"
-    y="455"
-    width="820"
-    height="72"
-    rx="14"
-    fill="#050A13"
-    stroke="#172554"
-  />
+    <text x="93" y="24" fill="#F8FAFC" font-size="13" font-weight="800" class="sans">EVOCODE</text>
+    <text x="102" y="46" fill="#CBD5E1" font-size="11" font-weight="700" class="sans">TEAM</text>
+    <text x="92" y="66" fill="#22D3EE" font-size="11" class="mono">Member of EvoCodeTeam</text>
+  </g>
 
-  <text
-    x="515"
-    y="485"
-    fill="#22D3EE"
-    font-size="12"
-    class="mono"
-  >
-    root@analytics:
-  </text>
+  <!-- terminal -->
+  <rect x="530" y="472" width="780" height="64" rx="14" fill="#050A13" stroke="#172554"/>
+  <text x="556" y="499" fill="#22D3EE" font-size="13" class="mono">$</text>
+  <text x="575" y="499" fill="#E2E8F0" font-size="13" class="mono">turning_data_into_business_value</text>
+  <text x="556" y="521" fill="#64748B" font-size="11" class="mono">SYSTEM STATUS: ONLINE // MEMBER: EVOCODETEAM</text>
+  <rect x="900" y="486" width="8" height="16" rx="2" fill="#22D3EE" class="blink"/>
 
-  <text
-    x="645"
-    y="485"
-    fill="#E2E8F0"
-    font-size="12"
-    class="mono"
-  >
-    execute --transform-data --generate-insight
-  </text>
-
-  <text
-    x="515"
-    y="510"
-    fill="#64748B"
-    font-size="11"
-    class="mono"
-  >
-    STATUS: DATA PIPELINE READY
-  </text>
-
-  <rect
-    x="740"
-    y="497"
-    width="8"
-    height="16"
-    rx="1"
-    fill="#00E5FF"
-    class="blink"
-  />
-
-  <!-- ====================== -->
-  <!-- SCAN LINE -->
-  <!-- ====================== -->
-
+  <!-- scan line -->
   <g class="scan">
-
-    <line
-      x1="460"
-      y1="330"
-      x2="1340"
-      y2="330"
-      stroke="#00E5FF"
-      stroke-width="1.4"
-      opacity="0.22"
-      filter="url(#glow)"
-    />
-
+    <line x1="500" y1="350" x2="1330" y2="350" stroke="#22D3EE" stroke-width="1.3" opacity="0.2" filter="url(#glow)"/>
   </g>
-
 </svg>
