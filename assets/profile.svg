@@ -1,0 +1,287 @@
+<svg
+  width="1200"
+  height="520"
+  viewBox="0 0 1200 520"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+
+  <defs>
+    <linearGradient id="borderGradient" x1="0" y1="0" x2="1200" y2="520">
+      <stop stop-color="#00E5FF"/>
+      <stop offset="0.5" stop-color="#4F46E5"/>
+      <stop offset="1" stop-color="#00E5FF"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect
+    width="1200"
+    height="520"
+    rx="24"
+    fill="#0D1117"
+  />
+
+  <!-- Border -->
+  <rect
+    x="4"
+    y="4"
+    width="1192"
+    height="512"
+    rx="22"
+    stroke="url(#borderGradient)"
+    stroke-width="3"
+  />
+
+  <!-- Terminal header -->
+  <circle cx="35" cy="34" r="8" fill="#FF5F56"/>
+  <circle cx="62" cy="34" r="8" fill="#FFBD2E"/>
+  <circle cx="89" cy="34" r="8" fill="#27C93F"/>
+
+  <text
+    x="600"
+    y="39"
+    text-anchor="middle"
+    fill="#8B949E"
+    font-size="16"
+    font-family="monospace"
+  >
+    valentino@data-analytics:~$
+  </text>
+
+  <!-- Divider -->
+  <line
+    x1="40"
+    y1="65"
+    x2="1160"
+    y2="65"
+    stroke="#30363D"
+    stroke-width="2"
+  />
+
+  <!-- Left side ASCII -->
+  <text
+    x="65"
+    y="115"
+    fill="#00E5FF"
+    font-size="22"
+    font-family="monospace"
+    filter="url(#glow)"
+  >
+    <tspan x="65" dy="0">        ██╗   ██╗</tspan>
+    <tspan x="65" dy="28">        ██║   ██║</tspan>
+    <tspan x="65" dy="28">        ██║   ██║</tspan>
+    <tspan x="65" dy="28">        ╚██╗ ██╔╝</tspan>
+    <tspan x="65" dy="28">         ╚████╔╝ </tspan>
+    <tspan x="65" dy="28">          ╚═══╝  </tspan>
+    <tspan x="65" dy="40">      VALENTINO</tspan>
+    <tspan x="65" dy="30">       ORIUNDO</tspan>
+  </text>
+
+  <!-- Vertical divider -->
+  <line
+    x1="420"
+    y1="95"
+    x2="420"
+    y2="470"
+    stroke="#30363D"
+    stroke-width="2"
+  />
+
+  <!-- Right content -->
+
+  <text
+    x="470"
+    y="110"
+    fill="#F0F6FC"
+    font-size="30"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Valentino Oriundo Flores
+  </text>
+
+  <text
+    x="470"
+    y="145"
+    fill="#00E5FF"
+    font-size="19"
+    font-family="monospace"
+  >
+    Systems Engineer | Data Analytics
+  </text>
+
+  <!-- Data Languages -->
+  <text
+    x="470"
+    y="205"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Data Languages
+  </text>
+
+  <text
+    x="700"
+    y="205"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    SQL • Python
+  </text>
+
+  <!-- BI -->
+  <text
+    x="470"
+    y="245"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Business Intelligence
+  </text>
+
+  <text
+    x="700"
+    y="245"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    Power BI • DAX
+  </text>
+
+  <!-- Data -->
+  <text
+    x="470"
+    y="285"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Data Analysis
+  </text>
+
+  <text
+    x="700"
+    y="285"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    Pandas • NumPy
+  </text>
+
+  <!-- Visualization -->
+  <text
+    x="470"
+    y="325"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Visualization
+  </text>
+
+  <text
+    x="700"
+    y="325"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    Power BI • Matplotlib
+  </text>
+
+  <!-- Databases -->
+  <text
+    x="470"
+    y="365"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Databases
+  </text>
+
+  <text
+    x="700"
+    y="365"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    SQL Server • PostgreSQL
+  </text>
+
+  <!-- Tools -->
+  <text
+    x="470"
+    y="405"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Tools
+  </text>
+
+  <text
+    x="700"
+    y="405"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    Excel • Git • GitHub • Jupyter
+  </text>
+
+  <!-- Current -->
+  <text
+    x="470"
+    y="445"
+    fill="#7EE787"
+    font-size="19"
+    font-weight="700"
+    font-family="monospace"
+  >
+    Currently Learning
+  </text>
+
+  <text
+    x="700"
+    y="445"
+    fill="#C9D1D9"
+    font-size="18"
+    font-family="monospace"
+  >
+    Statistics • Data Modeling
+  </text>
+
+  <!-- Prompt -->
+  <text
+    x="470"
+    y="485"
+    fill="#8B949E"
+    font-size="15"
+    font-family="monospace"
+  >
+    $ turning_data_into_insights --continuous
+  </text>
+
+</svg>
